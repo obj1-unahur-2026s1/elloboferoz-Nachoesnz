@@ -1,8 +1,22 @@
 object cazador{
 
-    const peso = 50
-    const pesoArma = 3
-    const pesoRopaCazador = 2
+    var peso = 60
+    var pesoArma = 6
+    var pesoRopaCazador = 3
 
-    method pesoTotalCazador() = peso + pesoArma + pesoRopaCazador
+    method modificarPesoCazador(pesoNuevo){
+        peso = pesoNuevo
+    }
+
+    method modificarPesoArmaCazador(pesoNuevo){
+        pesoArma = pesoNuevo
+    }
+
+    method modificarPesoRopaCazador(pesoNuevo){
+        pesoRopaCazador = pesoNuevo
+    }
+
+    method pesoTotalCazador(){
+        return (peso + pesoArma + pesoRopaCazador)
+    }
 }
