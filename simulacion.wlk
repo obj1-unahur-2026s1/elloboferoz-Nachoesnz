@@ -5,39 +5,79 @@ import Semana-3-Wollok.elloboferoz-Nachoesnz.canastaManzanas.*
 import Semana-3-Wollok.elloboferoz-Nachoesnz.caperucita.*
 import Semana-3-Wollok.elloboferoz-Nachoesnz.feroz.*
 import Semana-3-Wollok.elloboferoz-Nachoesnz.manzana.*
+import Semana-3-Wollok.elloboferoz-Nachoesnz.cazador.*
 
 
-// Lobo feroz va corriendo hacia el bosque
 
-feroz.disminuirPesoFeroz(1)
 
-// se encuentra con caperucita y conversan | no pasa nada
+// FINAL FELIZ PARA CAZADOR, LOBITO DESPELLEJADO Y USADO DE ALFOMBRA
+object historiaPrincipal{
 
-// lobo feroz corre hacia la casa de la abuelita y se la devora
-
-feroz.disminuirPesoFeroz(1)
-
-feroz.aumentarPesoFeroz(abuelaCaperucita.pesoAbuela())
-
-// lobo feroz se disfraza de abuelita.
-// caperucita corre y se le cae una manzana
-
-canastaManzanas.quitarManzanas(1)
-
-// caperucita molesta al lobo, y este la devora
-
-feroz.aumentarPesoFeroz(caperucita.pesoTotalCaperucita())
-
-// feroz intenta comerse al cazador
-
-object crisisEnFeroz{
-    if !feroz.puedeComerCazador(){
-        feroz.crisisFeroz() 
+    method ferozCorrerHaciaElBosque(){
+        feroz.disminuirPesoFeroz()
     }
-    else{
-        feroz.aumentarPesoFeroz(cazador.pesoTotalCazador())
+    method ferozCorrerHaciaCasaAbuelita(){
+        feroz.disminuirPesoFeroz()
+    }
+    method ferozDevoraAbuelita(){
+        feroz.aumentarPesoFeroz(abuelaCaperucita.pesoAbuela())
+    }
+    method caperucitaPierdeManzana(){
+        canastaManzanas.quitarManzanas(1)
+    }
+    method ferozDevoraCaperucita(){
+        feroz.aumentarPesoFeroz(caperucita.pesoTotalCaperucita())
+    }
+
+    method finalCazador(){
+        if (cazador.pesoTotalCazador() > 60 ) {
+            feroz.crisisFeroz()
+        }
+        else{
+            feroz.aumentarPesoFeroz(cazador.pesoTotalCazador())
+        }
     }
 }
 
+
+
+// FINAL FELIZ PARA LOBITO. TRISTE PARA CAZADOR
+object historiaSecundaria{
+
+    method llenarCanastaCaperucita(){
+        canastaManzanas.agregarManzanas(50)
+    }
+    method ferozCorrerHaciaElBosque(){
+        feroz.disminuirPesoFeroz()
+    }
+    method ferozCorrerHaciaCasaAbuelita(){
+        feroz.disminuirPesoFeroz()
+    }
+    method ferozDevoraAbuelita(){
+        feroz.aumentarPesoFeroz(abuelaCaperucita.pesoAbuela())
+    }
+    method caperucitaPierdeManzana(){
+        canastaManzanas.quitarManzanas(1)
+    }
+    method ferozDevoraCaperucita(){
+        feroz.aumentarPesoFeroz(caperucita.pesoTotalCaperucita())
+    }
+
+    // cambio a cazador, para que feroz lo devore
+
+    method cambiarPesoAlCazador(){
+        cazador.modificarPesoCazador(50)
+        cazador.modificarPesoArmaCazador(2)
+        cazador.modificarPesoRopaCazador(3)
+    }
+    method finalCazador(){
+        if (cazador.pesoTotalCazador() > 60 ) {
+            feroz.crisisFeroz()
+        }
+        else{
+            feroz.aumentarPesoFeroz(cazador.pesoTotalCazador())
+        }
+    }
+}
 
 
